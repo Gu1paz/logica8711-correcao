@@ -1,23 +1,15 @@
 #include<iostream>
+#include<string>
 
 int main(){
 
-    int num1 = 8;
-    int num2 = 2;
-    int soma, subt, mult, div;
-
-    soma = num1 + num2;
-    subt = num1 - num2;
-    mult = num1 * num2;
-    div = num1 / num2;
-
-    std::cout<<soma<<std::endl;
-    std::cout<<subt<<std::endl;
-    std::cout<<mult<<std::endl;
-    std::cout<<div<<std::endl;
+    int idade = 22;
+    float altura = 1.72;
+    std::string nome = "Guilherme";
     
-    
-
+    std::cout<<"Meu nome é "<<nome<<"."<<std::endl;
+    std::cout<<"Minha altura é "<<altura<<"m."<<std::endl;
+    std::cout<<"Minha idade é "<<idade<<" anos."<<std::endl;
 
     return 0;
 }
