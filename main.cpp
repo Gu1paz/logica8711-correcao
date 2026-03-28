@@ -20,5 +20,7 @@ int main(){
     std::cout<<"qual sua idade? "<<idade<<std::endl;
     std::cout<<"qual sua altura? "<<altura<<std::endl;
 
+    std::cout<<"teste";
+
     return 0;
 }
