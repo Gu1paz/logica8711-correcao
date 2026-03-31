@@ -3,9 +3,10 @@
 int main(){
 
    int a = 10;
-   
-   std::cout<<++a<<std::endl;
-   std::cout<<++a<<std::endl;
+   int b = 6;
+
+   std::cout<<((a > b) && (a + b) >= 16)<<std::endl;
+  
 
 
     return 0;
