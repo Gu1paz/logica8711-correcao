@@ -2,12 +2,10 @@
 
 int main(){
 
-    int soma1 =  100 + 50;
-    int soma2 = soma1 + 50;
-    int soma3 = soma2 + 100;
+   int a = 8;
+   int b = 3;
 
-    std::cout<<soma2<<std::endl;
-    std::cout<<soma3<<std::endl;
+   std::cout<<(a % b)<<std::endl;
 
 
     return 0;
