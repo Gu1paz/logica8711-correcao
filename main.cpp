@@ -2,14 +2,17 @@
 
 int main(){
 
-    int result1 = 4 + 4 * 2;
-    int result2 = 4 + 2 / 2;
-    int result3 = (4 + 4) * 2;
+    int num1, num2, soma;
 
-    std::cout<<result1<<std::endl;
-    std::cout<<result2<<std::endl;
-    std::cout<<result3<<std::endl;
-    
+    std::cout<< "Digite num 1: "<<"\n";
+    std::cin>>num1;
+
+    std::cout<<"Digite num 2: "<< "\n";
+    std::cin>>num2;
+
+    soma = num1 + num2;
+
+    std::cout<<"O resultado da soma é "<<soma<<"\n";
 
     return 0;
 }
