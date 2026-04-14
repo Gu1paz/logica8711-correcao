@@ -26,6 +26,8 @@ int main(){
         std::cout<<"Você é um(a) adolescente"<<std::endl;
     }else if(idade <= 60){
         std::cout<<"Você é um(a) adulto(a)"<<std::endl;
+    }else{
+        std::cout<<"Seu velho!!!"<<std::endl;
     }
 
 
