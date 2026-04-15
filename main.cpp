@@ -5,12 +5,12 @@
 
 int main(){
 
-    for(int i = 10; i >=0; i--){
-        std::cout<<"A bomba irá explodir em..."<<i<<std::endl;
+    int tabuada = 7;
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(500)); //second -> milliseconds
+    for(int i = 0; i <=10; i++){
+        std::cout<<"O resultado de "<<tabuada<<" x "<<i<<" = "<<tabuada * i<<std::endl;
     }
-    
+
 
     return 0;
 }
