@@ -1,12 +1,12 @@
 #include<iostream>
 
-int myFunction(int x){
-    return 5 + x;
+int myFunction(int x, int y){
+    return x + y;
 }
 
 int main(){
 
-    std::cout<<myFunction(3)<<std::endl;
+    std::cout<<myFunction(5, 3)<<std::endl;
 
 
     return 0;
