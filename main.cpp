@@ -2,21 +2,15 @@
 
 int main(){
 
-    int num;
+    int totalSeconds;
 
-    std::cout<<"Por favor digite um número: "<<std::endl;
-    std::cin>>num;
+    std::cout<<"Enter total Seconds: "<<std::endl;
+    std::cin>>totalSeconds;
 
-    std::cout<<num%2<<std::endl;
+    int minutes = totalSeconds / 60;
+    int seconds = totalSeconds % 60;
 
-    if(num%2 == 0){
-        //todo número par sempre vai sobrar 0
-        std::cout<<"Este número é par: "<<std::endl;
-    }else{
-        //todo número ímpar sempre vai sobrar 1
-        std::cout<<"Este número é ímpar: "<<std::endl;
-    }
-
+    std::cout<<"Time: "<<minutes<<" minutes and "<<seconds<<" seconds."<<std::endl;
 
 
     return 0;
