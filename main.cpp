@@ -1,15 +1,12 @@
 #include<iostream>
 #include<string>
+#include<limits>
 
 int main(){
 
-    std::string nomeCompleto;
-    std::string email;
-    std::string dataNascimento;
-    int idade;
-    int cpf;
-    int rg;
-    int curso;
+    std::string nomeCompleto, email, dataNascimento, cpf;
+
+    int idade, curso;
 
     double valorCursoTds = 14405.49;
     double valorCursoTecEnf = 15278.00;
@@ -24,18 +21,19 @@ int main(){
     std::cout<<"Qual é a sua idade: "<<std::endl;
     std::cin>>idade;
 
-    std::cout<<"Digite seu RG: "<<std::endl;
-    std::cin>>rg;
-
     std::cout<<"Digite seu CPF: "<<std::endl;
     std::cin>>cpf;
 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cout<<"Digite sua data de nascimento: "<<std::endl;
-    std::cin>>dataNascimento;
+    std::getline(std::cin, dataNascimento);
 
     std::cout<<"Digite seu email: "<<std::endl;
-    std::cin>>email;
+    std::getline(std::cin, email);
 
+    std::cout<<"----- Cadastro Realizado -----"<<std::endl;
+    std::cout<<"Aluno: "<<nomeCompleto<<" cpf: "<<cpf<<std::endl;
 
     std::cout<<"Por favor, escolha um curso: "<<std::endl;
     std::cout<<"1 - TI"<<std::endl;
@@ -56,7 +54,6 @@ int main(){
     default:
         std::cout<<"Número inválido"<<std::endl;    
     }
-
 
 
     return 0;
