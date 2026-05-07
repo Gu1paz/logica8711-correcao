@@ -15,6 +15,9 @@ int main(){
     float desconto = 0.10;
     float parcelasCartaoCredito = 0.06;
 
+    //informações cadastrais(concluido)
+    std::cout<<"----- Realize o seu cadastro -----"<<std::endl;
+
     std::cout<<"Digite o nome completo do aluno: "<<std::endl;
     std::getline(std::cin, nomeCompleto);
 
@@ -35,10 +38,11 @@ int main(){
     std::cout<<"----- Cadastro Realizado -----"<<std::endl;
     std::cout<<"Aluno: "<<nomeCompleto<<" cpf: "<<cpf<<std::endl;
 
-    std::cout<<"Por favor, escolha um curso: "<<std::endl;
-    std::cout<<"1 - TI"<<std::endl;
-    std::cout<<"2 - Saúde"<<std::endl;
-    std::cout<<"3 - Moda"<<std::endl;
+    //opções de cursos(inacabado)
+    std::cout<<"Por favor, escolha uma modalidade: "<<std::endl;
+    std::cout<<"1 - Cursos Presenciais"<<std::endl;
+    std::cout<<"2 - Cursos EAD"<<std::endl;
+    std::cout<<"3 - Cursos Livres"<<std::endl;
     std::cin>>curso;
 
     switch(curso){
@@ -54,6 +58,8 @@ int main(){
     default:
         std::cout<<"Número inválido"<<std::endl;    
     }
+
+    
 
 
     return 0;
