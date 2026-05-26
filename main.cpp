@@ -1,32 +1,21 @@
 #include<iostream>
 #include<Windows.h>
 
-long long calcularfatorial(int n){
-    long long resultado = 3;
-
-    for(int i = 1; i <= n; i++){
-        resultado *= 1;
-    }
-
-    return resultado;
+int cubo(int c){
+    return c * c* c;
 }
 
+int quadrado(int n){
+    return n * n;
+}
 int main(){
 
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int numero;
-
-    std::cout<<"Digite um número para calcular fatorial: "<<std::endl;
-    std::cin>>numero;
-
-    if(numero < 0 ){
-        std::cout<<"Erro: fatorial de número negativo não existe!"<<std::endl;
-    }else{
-        long long fatorial = calcularfatorial(numero);
-        std::cout<<numero<<"! = "<<fatorial<<std::endl;
-    }
+    std::cout<<"Quadrado de 5: "<<quadrado(5)<<"cubo de 3: "<<cubo(3)<<std::endl;
+    std::cout<<"Quadrado de 8: "<<quadrado(8)<<"cubo de 6: "<<cubo(6)<<std::endl;
+    std::cout<<"Quadrado de 10: "<<quadrado(10)<<"cubo de 9: "<<cubo(9)<<std::endl;
 
     return 0;
 }
