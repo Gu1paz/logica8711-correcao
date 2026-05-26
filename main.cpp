@@ -1,4 +1,6 @@
 #include<iostream>
+#include<format>
+#include<string>
 #include<Windows.h>
 
 int main(){
@@ -6,22 +8,10 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int numero;
-    int contador = 0;
-    
-    while(true){
-        std::cout<<"Digite um número (0 para parar): ";
-        std::cin>>numero;
+    std::string nome = "Guilherme";
 
-        if(numero == 0){
-            break;
-       }
-       
-       contador++;
-    }
-
-    std::cout<<"Você digitou "<<contador<<" números!"<<std::endl;
-
+    std::string mensagem = std::format("Olá, {}! Você tem {} anos.\n", nome);
+    std>>cout<<mensagem;
 
     return 0;
 }
