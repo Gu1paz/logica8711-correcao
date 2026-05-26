@@ -6,21 +6,15 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int numero, sorteado = 42;
-
-    do{
-        std::cout<<"Adivinhe: ";
-        std::cin>>numero;
-        if(numero < sorteado){
-            std::cout<<"Maior!"<<std::endl;
-        }else if(numero > sorteado){
-            std::cout<<"Menor!"<<std::endl;
-        }
-    }while(numero != sorteado);
-
-    std::cout<<"Acertou!!"<<std::endl;
+    int soma = 0;
     
-
+    for(int i = 1; i <= 20; i++){
+        if(i % 2 == 0){
+            soma += i;
+        }
+    }
+    
+    std::cout<<"Soma dos pares de 1 a 20: "<<soma<<std::endl;
 
     return 0;
 }
