@@ -1,23 +1,23 @@
 #include<iostream>
 #include<Windows.h>
 
+void contar(int numero){
+    if(numero == 0){
+        std::cout<<"PARE!!\n";
+        return;
+    }
+    std::cout<<numero<<"\n";
+
+    contar(numero - 1);
+}
+
 int main(){
 
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int fibonacci[10];
+    contar(5);
 
-    fibonacci[0] = 1;
-    fibonacci[1] = 1;
-
-    for(int i = 2; i < 10; i++){
-        fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
-    }
-
-    for(int i = 0; i < 10; i++){
-        std::cout<<fibonacci[i]<<"\n";
-    }
 
     return 0;
 }
