@@ -1,22 +1,12 @@
 #include<iostream>
 #include<Windows.h>
 
-int fibonacci(int n){
-    std::cout<<"calculando fib("<< n<<")"<<std::endl;
-
-    if(n == 0){
-        std::cout<<"fib(0) = 0 (PARADA)"<<std::endl;
-        return 0;
-    }
-    if(n == 1){
-        std::cout<<"Fib(1) = 1 (PARADA)"<<std::endl;
-        return 1;
+int somarVetor(int vetor[], int indice){
+    if(indice == 0){
+        return vetor[0];
     }
 
-    std::cout<<"Fib("<<n<<") = Fib("<<(n-1)<<") + Fib("<<(n-2)<<")\n";
-    int resultado = fibonacci(n -1) + fibonacci(n - 2);
-    std::cout<<"Fib(" << n << ") = "<< resultado << "\n";
-    return resultado;
+    return vetor[indice] + somarVetor(vetor, indice - 1);
 }
 
 int main(){
@@ -24,7 +14,9 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    fibonacci(4);
+    int numero[5] = {10, 20, 30 ,40 ,50};
+
+    std::cout<<"Soma recursiva: "<<somarVetor(numero, 4)<<std::endl;
 
 
     return 0;
