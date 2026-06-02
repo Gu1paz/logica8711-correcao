@@ -1,12 +1,19 @@
 #include<iostream>
+#include<cctype>
 #include<Windows.h>
 
-int somarVetor(int vetor[], int indice){
-    if(indice == 0){
-        return vetor[0];
-    }
+bool ehPalindromo(std:: string s){
+    int inicio = 0;
+    int fim = s.length() - 1;
 
-    return vetor[indice] + somarVetor(vetor, indice - 1);
+    while(inicio < fim){
+        if(s[inicio] != s[fim]){
+            return false;
+        }
+        inicio++;
+        fim--;
+    }
+    return true;
 }
 
 int main(){
@@ -14,9 +21,20 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int numero[5] = {10, 20, 30 ,40 ,50};
+    std::string palavra;
 
-    std::cout<<"Soma recursiva: "<<somarVetor(numero, 4)<<std::endl;
+    std::cout<<"Digite uma palavra: "<<std::endl;
+    std::cin>>palavra;
+
+    for(int i = 0; i< palavra.length(); i++){
+        palavra[i] = std::tolower(palavra[i]);
+    }
+
+    if(ehPalindromo(palavra)){
+        std::cout<<"É palindromo!"<<std::endl;
+    }else{
+        std::cout<<"Não é palindromo!"<<std::endl;
+    }
 
 
     return 0;
