@@ -4,33 +4,23 @@
 
 struct Aluno{
     std::string nome;
-    float nota1;
-    float nota2;
+    float nota;
 };
-float calcularMedia(Aluno a){
-    return (a.nota1 + a.nota2) / 2;
-}
 
 int main(){
 
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    Aluno aluno = {"Paulo", 8.0, 9.5};
-
-    std::cout<<"Digite seu nome: "<<std::endl;
-    std::cin>>aluno.nome;
-
-    std::cout<<"Digite sua nota1: "<<std::endl;
-    std::cin>>aluno.nota1;
-
-    std::cout<<"Digita sua nota2: "<<std::endl;
-    std::cin>>aluno.nota2;
-
-    float media = calcularMedia(aluno);
-
-    std::cout<<aluno.nome<<" - Média: "<<media<<std::endl;
+    Aluno alunos[3]={
+        {"Henrique", 8.5},
+        {"Paula", 9.0},
+        {"Juliana", 7.0}
+    };  
     
+    for(int i = 0; i < 3; i++){
+        std::cout<<alunos[i].nome<<": "<<alunos[i].nota<<std::endl;
+    }
 
     return 0;
 }
