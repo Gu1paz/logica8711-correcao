@@ -2,65 +2,61 @@
 #include<string>
 #include<Windows.h>
 
-struct Tarefa{
+// 1. O Molde do nosso Produto (A etiqueta do preço)
+struct Produto {
     int id;
-    std::string descricao;
-    bool concluida;
+    std::string nome;
+    double preco; // Escolhemos double para ter precisão nos centavos!
 };
 
-Tarefa tarefas[50];
-    int totalTarefas = 0;
+// Criamos uma prateleira que cabe até 100 produtos
+Produto estoque[100];
+int totalProdutos = 0; // O nosso dedo indicador que conta quantos produtos temos
 
-    void adicionar(){
-        std::cout<<"\n --- Adicionar tarefas ---"<<std::endl;
+void adicionar() {
+    std::cout << "\n--- Cadastrar Novo Produto ---" << std::endl;
 
-        std::cout<<"ID: ";
-        std::cin>>tarefas[totalTarefas].id;
+    std::cout << "Digite o ID do produto: ";
+    std::cin >> estoque[totalProdutos].id;
 
-        std::cin.ignore();
-        std::cout<<"Descrição: ";
-        std::getline(std::cin, tarefas[totalTarefas].descricao);
+    // O limpador de para-brisa para não pular o nome!
+    std::cin.ignore(); 
 
-        tarefas[totalTarefas].concluida = false;
+    std::cout << "Digite o nome do produto: ";
+    std::getline(std::cin, estoque[totalProdutos].nome);
 
-        totalTarefas++;
-        std::cout<<"Tarefa adicionada!"<<std::endl;
+    std::cout << "Digite o preço: R$ ";
+    std::cin >> estoque[totalProdutos].preco;
+
+    // Avisamos que a vaga foi preenchida e andamos com o dedo indicador
+    totalProdutos++;
+    std::cout << "¡Produto cadastrado com sucesso!" << std::endl;
+}
+
+void exibir() {
+    // Se o dedo indicador estiver no zero, a loja está vazia!
+    if (totalProdutos == 0) {
+        std::cout << "\nO estoque está completamente vazio!" << std::endl;
+        return;
     }
 
-    void listar(){
-        if(totalTarefas == 0){
-            std::cout<<"\nNenhuma tarefa!"<<std::endl;
-            return;
-        }
-        std::cout<<"\n--- Tarefas ---"<<std::endl;
-        for(int i = 0; i < totalTarefas; i++){
-            std::string status = tarefas[i].concluida ? "S" : "N";
-            std::cout<<"["<<status<<"]"<<tarefas[i].id<<" - "<<tarefas[i].descricao<<std::endl;
-        }
+    std::cout << "\n=== PRODUTOS NO ESTOQUE ===" << std::endl;
+    // O fiscal do loop passa olhando prateleira por prateleira
+    for (int i = 0; i < totalProdutos; i++) {
+        std::cout << "ID: " << estoque[i].id 
+                  << " | Produto: " << estoque[i].nome 
+                  << " | Preço: R$ " << estoque[i].preco << std::endl;
     }
-    void marcarConcluida(){
-        int idBuscado;
-        std::cout<<"\nID da tarefa: ";
-        std::cin>>idBuscado;
+}
 
-        for(int i = 0; i <totalTarefas; i++){
-            if(tarefas[i].id == idBuscado){
-                tarefas[i].concluida = true;
-                std::cout<<"Marcado como concluído!"<<std::endl;
-                return;
-            }
-        }
-        std::cout<<"Tarefa não encontrada!"<<std::endl;
-    }
+void menu() {
+    std::cout << "\n=== SISTEMA DE MERCADINHO ===" << std::endl;
+    std::cout << "1. Adicionar Produto" << std::endl;
+    std::cout << "2. Exibir Estoque" << std::endl;
+    std::cout << "3. Sair" << std::endl;
+    std::cout << "Escolha uma opção: ";
+}
 
-    void menu(){
-        std::cout<<"\n === TODO LIST ==="<<std::endl;
-        std::cout<<"1. Adicionar"<<std::endl;
-        std::cout<<"2. Listar"<<std::endl;
-        std::cout<<"3. Marcar concluída"<<std::endl;
-        std::cout<<"4. Sair"<<std::endl;
-        std::cout<<"Escolha: "<<std::endl;
-    }
 int main(){
 
     SetConsoleOutputCP(CP_UTF8);
@@ -68,27 +64,25 @@ int main(){
 
     int opcao;
 
-    while(true){
+    // Loop infinito para o menu ficar rodando até você mandar sair
+    while (true) {
         menu();
-        std::cin>>opcao;
+        std::cin >> opcao;
 
-        switch(opcao){
+        switch (opcao) {
             case 1:
                 adicionar();
                 break;
             case 2:
-                listar();
+                exibir();
                 break;
             case 3:
-                marcarConcluida();
-                break;
-            case 4:
-                std::cout<<"Até logo!"<<std::endl;
-                return 0;
+                std::cout << "Fechando o caixa... Até logo!" << std::endl;
+                return 0; // Desliga o programa
             default:
-                std::cout<<"Opção inválida!"<<std::endl;
+                std::cout << "Opção inválida! Tente novamente." << std::endl;
         }
     }
-    
+
     return 0;
 }
