@@ -30,6 +30,15 @@ int main(){
     std::cout<<time1<<" "<<gols1<<" x "<<gols2<<" "<<time2<<std::endl;
     std::cout<<std::endl;
 
+    if(gols1 > gols2){
+        std::cout<<"Vencedor!! "<<time1<<std::endl;
+    }else if(gols2 > gols1){
+        std::cout<<"Vencedor!! "<<time2<<std::endl;
+    }else{
+        std::cout<<"Empate!!"<<std::endl;
+    }
+
+    std::cout<<std::endl;
 
     
     return 0;
