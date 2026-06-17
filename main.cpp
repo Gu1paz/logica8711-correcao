@@ -2,10 +2,10 @@
 #include<string>
 #include<Windows.h>
 
-struct Jogador{
-    std::string nome;
+struct Aposta{
     std::string time;
-    int gols;
+    double valor;
+    double odd;
 };
 
 int main(){
@@ -13,37 +13,28 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    Jogador jogadores[5];
-    
-    std::cout<<"==== COPA - RANKING DE GOLEADORES ===="<<std::endl;
+    std::cout<<"==== CALCULADORA DE APOSTAS ===="<<std::endl;
     std::cout<<std::endl;
 
-    for(int i = 0; i < 5; i++){
-        std::cout<<"Jogador "<<(i + 1)<<":"<<std::endl;
-        std::cout<<"Nome: ";
-        std::cin>>jogadores[i].nome;
-        std::cout<<"Time: ";
-        std::cin>>jogadores[i].time;
-        std::cout<<"Gols: ";
-        std::cin>>jogadores[i].gols;
-        std::cout<<std::endl;
-    }
+    Aposta aposta;
 
-    std::cout<<"==== RANKING ===="<<std::endl;
+    std::cout<<"Time: ";
+    std::cin>>aposta.time;
+
+    std::cout<<"Valor da aposta (R$): ";
+    std::cin>>aposta.valor;
+
+    std::cout<<"Odd (multiplicador): ";
+    std::cin>>aposta.odd;
+
+    double ganho = aposta.valor * aposta.odd;
+    double lucro = ganho - aposta.valor;
+
     std::cout<<std::endl;
-
-    for(int i = 0; i < 5 - 1; i++){
-        for(int j = 0; j < 5 - 1; j++){
-            if(jogadores[i].gols < jogadores[j + 1].gols){
-                Jogador temp = jogadores[j];
-                jogadores[j] = jogadores[j + 1];
-                jogadores[j + 1] = temp;
-            }
-        }
-    }
-    for(int i = 0; i < 5; i++){
-        std::cout<<(i + 1)<<"º - "<<jogadores[i].nome<<" ("<<jogadores[i].time<<") - "<<jogadores[i].gols<<" gols"<<std::endl;
-    }
+    std::cout<<"==== RESULTADO ===="<<std::endl;
+    std::cout<<"Você apostou R$ "<<aposta.valor<<" em "<<aposta.time<<std::endl;
+    std::cout<<"Se acertar, você ganha: R$ "<<ganho<<std::endl;
+    std::cout<<"Lucro: R$ "<<lucro<<std::endl;
 
     return 0;
 }
