@@ -2,39 +2,35 @@
 #include<string>
 #include<Windows.h>
 
-struct Aposta{
-    std::string time;
-    double valor;
-    double odd;
-};
+
 
 int main(){
 
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    std::cout<<"==== CALCULADORA DE APOSTAS ===="<<std::endl;
+    std::string time1, time2;
+    int gols1, gols2;
+
+    std::cout<<"==== COMPARADOR DE PLACAR ===="<<std::endl;
     std::cout<<std::endl;
 
-    Aposta aposta;
+    std::cout<<"Time 1: ";
+    std::cin>>time1;
+    std::cout<<"Gols time 1: ";
+    std::cin>>gols1;
 
-    std::cout<<"Time: ";
-    std::cin>>aposta.time;
-
-    std::cout<<"Valor da aposta (R$): ";
-    std::cin>>aposta.valor;
-
-    std::cout<<"Odd (multiplicador): ";
-    std::cin>>aposta.odd;
-
-    double ganho = aposta.valor * aposta.odd;
-    double lucro = ganho - aposta.valor;
+    std::cout<<"Time 2: ";
+    std::cin>>time2;
+    std::cout<<"Gols time 2: ";
+    std::cin>>gols2;
 
     std::cout<<std::endl;
     std::cout<<"==== RESULTADO ===="<<std::endl;
-    std::cout<<"Você apostou R$ "<<aposta.valor<<" em "<<aposta.time<<std::endl;
-    std::cout<<"Se acertar, você ganha: R$ "<<ganho<<std::endl;
-    std::cout<<"Lucro: R$ "<<lucro<<std::endl;
+    std::cout<<time1<<" "<<gols1<<" x "<<gols2<<" "<<time2<<std::endl;
+    std::cout<<std::endl;
 
+
+    
     return 0;
 }
