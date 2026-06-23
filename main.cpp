@@ -7,71 +7,78 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    // Criamos uma pilha com capacidade para 10 elementos (índices de 0 a 9)
-    int  pilha[10];
-    int topo = -1; // -1 significa que a pilha começa totalmente vazia
+    // Criamos uma fila estática com capacidade para 10 elementos
+    int fila[10];
+    
+    // Controle da fila:
+    // 'inicio' acompanha quem é o próximo a ser removido.
+    // 'fim' acompanha onde o próximo elemento deve ser inserido.
+    int inicio = 0;
+    int fim = 0;
     int opcao;
 
-    std::cout<<"==== PILHA COM MENU ===="<<std::endl;
+    std::cout<<"==== FILA COM MENU ===="<<std::endl;
 
-    // Loop infinito para manter o menu rodando até que o usuário escolha sair (opção 4)
+    // Loop infinito para manter o menu ativo até o usuário escolher a opção 4
     while(true){
         std::cout<<std::endl;
-        std::cout<<"1. Empilhar (Push)"<<std::endl;
-        std::cout<<"2. Desempilhar (Pop)"<<std::endl;
-        std::cout<<"3. Exibir pilha"<<std::endl;
+        std::cout<<"1. Enfileirar (Enqueue)"<<std::endl;
+        std::cout<<"2. Desenfileirar (Dequeue)"<<std::endl;
+        std::cout<<"3. Exibir"<<std::endl;
         std::cout<<"4. Sair"<<std::endl;
         std::cout<<"Escolha: ";
         std::cin>>opcao;
 
-        // --- OPÇÃO 1: EMPILHAR (PUSH) ---
+        // --- OPÇÃO 1: ENFILEIRAR ---
         if(opcao == 1){
-            // Como o vetor vai até o índice 9, só podemos empilhar se o topo for menor que 9.
-            // Se o topo for 9, significa que a pilha já está cheia (Stack Overflow).
-            if(topo < 9){
+            // Verifica se o 'fim' ainda não atingiu o limite máximo do vetor (10)
+            if(fim < 10){
                 int valor;
-                std::cout<<"Digite um valor: ";
+                std::cout<<"Digite o valor: ";
                 std::cin>>valor;
                 
-                topo++; // Move o ponteiro do topo para a próxima posição livre
-                pilha[topo] = valor; // CORRIGIDO: Agora o valor digitado é realmente salvo na pilha!
+                fila[fim] = valor; // Insere o novo elemento sempre no final da fila
+                fim++; // Move o ponteiro do fim para a próxima posição livre
                 
-                std::cout<<"Elemento "<<valor<<" empilhado com sucesso!"<<std::endl;
-            }else {
-                std::cout<<"Erro: Pilha cheia (Stack Overflow)!"<<std::endl;
-            }
-        }
-        // --- OPÇÃO 2: DESEMPILHAR (POP) ---
-        else if(opcao == 2){
-            // Só podemos desempilhar se houver algum elemento (topo maior ou igual a 0).
-            // Se o topo for -1, a pilha está vazia (Stack Underflow).
-            if(topo >= 0){
-                std::cout<<"Removido: "<<pilha[topo]<<std::endl;
-                topo--; // Reduz o topo, "esquecendo" o elemento que estava lá
+                std::cout<<"Elemento "<<valor<<" enfileirado!"<<std::endl;
             }else{
-                std::cout<<"Erro: Pilha vazia (Stack Underflow)!"<<std::endl;
+                // Se 'fim' for 10, o vetor acabou
+                std::cout<<"Erro: Fila cheia!"<<std::endl;
             }
         }
-        // --- OPÇÃO 3: EXIBIR PILHA ---
+        // --- OPÇÃO 2: DESENFILEIRAR ---
+        else if(opcao == 2){
+            // A fila só tem elementos se o 'inicio' for menor que o 'fim'
+            // Se 'inicio == fim', significa que todos que entraram já saíram
+            if(inicio < fim){
+                // Remove (atende) sempre quem está no 'inicio' da fila (FIFO)
+                std::cout<<"Removido: "<<fila[inicio]<<std::endl;
+                inicio++; // O próximo da fila passa a ser o novo início
+            }else{
+                std::cout<<"Erro: Fila vazia!"<<std::endl;
+            }
+        }
+        // --- OPÇÃO 3: EXIBIR FILA ---
         else if(opcao == 3){
-            // Verifica se há elementos para mostrar
-            if(topo >= 0){
-                std::cout<<"Pilha atual (da base ao topo): ";
-                // Faz um laço do índice 0 até a posição atual do topo
-                for(int i = 0; i <= topo; i++){
-                    std::cout<<pilha[i]<<" ";
+            // Verifica se existem elementos ativos para exibir
+            if(inicio < fim){
+                std::cout<<"Fila atual: ";
+                // O laço começa a partir do 'inicio' atual (quem já saiu é ignorado)
+                // e vai até o elemento imediatamente anterior ao 'fim'
+                for(int i = inicio; i < fim; i++){
+                    std::cout<<fila[i]<<" ";
                 }
                 std::cout<<std::endl;
             }else{
-                std::cout<<"Pilha vazia!"<<std::endl;
+                std::cout<<"Fila vazia!"<<std::endl;
             }
         }
         // --- OPÇÃO 4: SAIR ---
         else if(opcao == 4){
-            std::cout<<"Saindo do programa..."<<std::endl;
-            break; // Quebra o loop 'while(true)' e finaliza o programa
+            std::cout<<"Saindo..."<<std::endl;
+            break; // Encerra o loop e finaliza o programa
         }
-        // --- TRATAMENTO PARA OPÇÕES INVÁLIDAS ---
+        // --- TRATAMENTO DE OPÇÃO INVÁLIDA ---
         else {
             std::cout<<"Opção inválida! Tente novamente."<<std::endl;
         }
