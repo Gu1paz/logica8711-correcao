@@ -7,39 +7,32 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    // Agora o array tem exatamente 8 elementos, com os números 2 e 3 duplicados.
-    int numeros[] = {1, 2, 3, 2, 4, 5, 3, 6};
-    int tamanho = 8; // Perfeito! O tamanho corresponde exatamente à quantidade de itens.
+    // Vetor inicializado com valores de 1 a 10
+    int numeros[] = {1,2,3,4,5,6,7,8,9,10};
+    int tamanho = 10; // Definição correta do tamanho do array
 
-    std::cout<<"==== NÚMEROS DUPLICADOS ===="<<std::endl;
+    std::cout<<"==== PARES E IMPARES ===="<<std::endl;
     std::cout<<std::endl;
-
-    // Exibe o estado atual do array para o usuário
-    std::cout<<"Array: ";
-    for(int i = 0; i < tamanho; i++){
-        std::cout<<numeros[i]<<" ";
-    }
-    std::cout<<std::endl;
-
-    std::cout<<"Números duplicados: "<<std::endl;
     
-    // O primeiro laço escolhe o número atual para comparação (Ex: primeiro o 1, depois o 2, depois o 3...)
+    // --- FILTRANDO OS NÚMEROS PARES ---
+    std::cout<<"Pares: ";
     for(int i = 0; i < tamanho; i++){
-        
-        // O segundo laço varre apenas os números que estão À FRENTE do número escolhido.
-        // Isso evita comparar um número com ele mesmo ou repetir verificações antigas.
-        for(int j = i + 1; j < tamanho; j++){
-            
-            // Se o número da posição 'i' for igual ao número da posição 'j', achamos uma duplicata!
-            if(numeros[i] == numeros[j]){
-                std::cout<<numeros[i]<<" aparece mais de uma vez!"<<std::endl;
-                
-                // O break interrompe o laço interno 'j'. 
-                // Assim, se o número tiver mais repetições pela frente, evitamos printar mensagens repetidas para ele.
-                break; 
-            }
+        // Se o resto da divisão por 2 for 0, o número é par
+        if(numeros[i] % 2 == 0){
+            std::cout<<numeros[i]<<" ";
         }
     }
+    std::cout<<std::endl; // Salta para a próxima linha no terminal
+    
+    // --- FILTRANDO OS NÚMEROS ÍMPARES ---
+    std::cout<<"Ímpares: "; // Rótulo adicionado com sucesso!
+    for(int i = 0; i < tamanho; i++){
+        // Se o resto da divisão por 2 for diferente de 0, o número é ímpar
+        if(numeros[i] % 2 != 0){
+            std::cout<<numeros[i]<<" ";
+        }
+    }
+    std::cout<<std::endl;
 
     return 0;
 }
