@@ -7,32 +7,37 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    // Vetor inicializado com valores de 1 a 10
-    int numeros[] = {1,2,3,4,5,6,7,8,9,10};
-    int tamanho = 10; // Definição correta do tamanho do array
+    int numeros[] = {10, 20, 30, 40, 50, 60, 70, 80};
+    int tamanho = 8;
+    int buscado;
 
-    std::cout<<"==== PARES E IMPARES ===="<<std::endl;
+    std::cout<<"==== Buscar número ===="<<std::endl;
     std::cout<<std::endl;
-    
-    // --- FILTRANDO OS NÚMEROS PARES ---
-    std::cout<<"Pares: ";
+
+    std::cout<<"Array: ";
     for(int i = 0; i < tamanho; i++){
-        // Se o resto da divisão por 2 for 0, o número é par
-        if(numeros[i] % 2 == 0){
-            std::cout<<numeros[i]<<" ";
-        }
-    }
-    std::cout<<std::endl; // Salta para a próxima linha no terminal
-    
-    // --- FILTRANDO OS NÚMEROS ÍMPARES ---
-    std::cout<<"Ímpares: "; // Rótulo adicionado com sucesso!
-    for(int i = 0; i < tamanho; i++){
-        // Se o resto da divisão por 2 for diferente de 0, o número é ímpar
-        if(numeros[i] % 2 != 0){
-            std::cout<<numeros[i]<<" ";
-        }
+        std::cout<<numeros[i]<<" ";
     }
     std::cout<<std::endl;
+
+    std::cout<<"Digite o número a buscar: ";
+    std::cin>>buscado;
+
+    int posicao = -1;
+
+    for(int i = 0; i < tamanho; i++){
+        if(numeros[i] == buscado){
+            posicao = i;
+            break;
+        }
+    }
+
+    std::cout<<std::endl;
+    if(posicao != -1){
+        std::cout<<"Encontrado na posição "<<posicao<<std::endl;
+    }else{
+        std::cout<<"Não encontrado!"<<std::endl;
+    }
 
     return 0;
 }
