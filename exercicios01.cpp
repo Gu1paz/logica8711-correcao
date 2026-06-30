@@ -1,11 +1,6 @@
-#include<iostream>
-#include<Windows.h>
+#include <iostream>
 
-int main(){
-
-    // Configura o terminal do Windows para aceitar acentuação corretamente (UTF-8)
-    SetConsoleOutputCP(CP_UTF8);
-    SetConsoleCP(CP_UTF8);
+int main() {
 
     // Declara um vetor de inteiros com capacidade para armazenar 5 números
     int numeros[5];
@@ -23,5 +18,6 @@ int main(){
     for (int i = 0; i < 5; i++) {
         std::cout << numeros[i] << " "; // Exibe o valor da posição i seguido de um espaço
     }
-    return 0;
+
+    return 0; // Indica que o programa foi executado com sucesso
 }
