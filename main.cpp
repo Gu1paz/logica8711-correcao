@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 #include<Windows.h>
 
 int main(){
@@ -7,21 +8,28 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    // Declara um vetor de inteiros com capacidade para armazenar 5 números
-    int numeros[5];
+    std::vector<int>numeros;
 
-    // Laço para solicitar ao usuário que digite os 5 números
-    for (int i = 0; i < 5; i++) {
-        std::cout << "Digite o número: ";
-        std::cin >> numeros[i]; // Armazena o número na posição i do vetor
+    std::cout<<"==== VECTOR (Arraylist em C++) ===="<<std::endl;
+
+    numeros.push_back(10);
+    numeros.push_back(20);
+    numeros.push_back(30);
+
+    std::cout<<"Números: ";
+    for(int i = 0; i < numeros.size(); i++){
+        std::cout<<numeros[i]<<" ";
+    }
+    std::cout<<std::endl;
+
+    std::cout<<"Tamanho: "<<numeros.size()<<std::endl;
+
+    numeros.pop_back();
+
+    std::cout<<"Após remover o último: ";
+    for(int i = 0; i <numeros.size(); i++){
+        std::cout<<numeros[i]<<" ";
     }
 
-    // Exibe uma mensagem antes de mostrar os números armazenados
-    std::cout << "Exibir números: ";
-
-    // Laço para percorrer o vetor e exibir cada número digitado
-    for (int i = 0; i < 5; i++) {
-        std::cout << numeros[i] << " "; // Exibe o valor da posição i seguido de um espaço
-    }
     return 0;
 }

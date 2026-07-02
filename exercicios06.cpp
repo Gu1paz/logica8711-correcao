@@ -2,16 +2,16 @@
 
 int main(){
 
-    int numeros[5] = {11, 23, 53, 11, 19};
+    int numeros[10];
     int contador = 0;
 
-    for(int i = 0; i < 5; i++){
-        if(numeros[i] == 11){
-            contador++;
+    for(int i = 0; i < 10; i++){
+        std::cout<<"Digite o numero: "<<std::endl;
+        std::cin>>numeros[i];
+        contador ++;
         }
-    }
 
-    std::cout<<"O numero 11 apareceu: "<<contador<<" vezes."<<std::endl;
+    std::cout<<"O array tem: "<<contador<<" elementos."<<std::endl;
 
 
     return 0;
