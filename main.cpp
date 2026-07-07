@@ -9,35 +9,22 @@ int main(){
     SetConsoleCP(CP_UTF8);
 
     std::vector<int>numeros;
+    int soma = 0;
 
-    std::cout<<"==== Maior e menor ===="<<std::endl;
-    std::cout<<std::endl;
+    std::cout<<"==== SOMA DOS VECTORES ===="<<std::endl;
 
-    numeros.push_back(15);
-    numeros.push_back(8);
-    numeros.push_back(25);
-    numeros.push_back(3);
-    numeros.push_back(42);
+    numeros.push_back(10);
+    numeros.push_back(20);
+    numeros.push_back(30);
+    numeros.push_back(40);
 
     std::cout<<"Vector: ";
     for(int i = 0; i < numeros.size(); i++){
-        std::cout<<numeros[i]<<" ";
+        soma += numeros[i];
     }
-    std::cout<<std::endl;
-    int maior = numeros[0];
-    int menor = numeros[0];
+    std::cout<<"A soma dos números é: "<<soma<<std::endl;
 
-    for(int i = 0; i < numeros.size(); i++){
-        if(numeros[i] > maior){
-            maior = numeros[i];
-        }
-        if(numeros[i] < menor){
-            menor = numeros[i];
-        }
-    }
-    std::cout<<"Maior: "<<maior<<std::endl;
-    std::cout<<"Menor: "<<menor<<std::endl;
-    
-   
+
+
     return 0;
 }
