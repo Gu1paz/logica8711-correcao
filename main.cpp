@@ -9,23 +9,22 @@ int main(){
     SetConsoleCP(CP_UTF8);
 
     std::vector<int> numeros;
-    int quantidade;
-    std::cout<<"Adicionar do usuário"<<std::endl;
 
-    std::cout<<"Quantos números?"<<std::endl;
-    std::cin>>quantidade;
+    std::cout<<"Mostrar pares"<<std::endl;
 
-    for(int i = 0; i < quantidade; i++){
-        int numero;
-        std::cout<<"Digite o número "<<(i + 1)<<" ";
-        std::cin>>numero;
-        numeros.push_back(numero);
-    }
+    numeros.push_back(5);
+    numeros.push_back(10);
+    numeros.push_back(15);
+    numeros.push_back(20);
+    numeros.push_back(25);
 
-    std::cout<<"Números adicionados: ";
+    std::cout<<"Vector: ";
     for(int i = 0; i < numeros.size(); i++){
-        std::cout<<numeros[i]<<" ";
+        if(numeros[i] % 2 == 0){
+            std::cout<<numeros[i]<<std::endl;
+        }
     }
+    std::cout<<std::endl;
     
     return 0;
 }
