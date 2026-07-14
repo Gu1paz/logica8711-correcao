@@ -1,32 +1,24 @@
 #include<iostream>
-#include<vector>
+#include<cmath>
 #include<Windows.h>
 
+int CalcularCubo(int num){
+    return static_cast<int>(std::pow(num, 3));
+}
 int main(){
 
     // Configura o terminal do Windows para aceitar acentuação corretamente (UTF-8)
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    std::vector<int> numeros;
+    int a;
 
-    std::cout<<"Inverter o vector: "<<std::endl;
+    std::cout<<"Digite um número interiro: "<<std::endl;
+    std::cin>>a;
 
-    numeros.push_back(10);
-    numeros.push_back(20);
-    numeros.push_back(30);
-    numeros.push_back(40);
-    numeros.push_back(50);
+    int cubo = CalcularCubo(a);
 
-    std::cout<<"Original: ";
-    for(int i = 0; i < numeros.size(); i++){
-        std::cout<<numeros[i]<<" ";
-    }
-    std::cout<<std::endl;
-    std::cout<<"Invertido: ";
-    for(int i = numeros.size() - 1; i >= 0; i--){
-        std::cout<<numeros[i]<<" ";
-    }
-    std::cout<<std::endl;
+    std::cout<<"O cubo de "<<a<<" é: "<<cubo<<std::endl;
+    
     return 0;
 }
