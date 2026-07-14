@@ -2,23 +2,22 @@
 #include<cmath>
 #include<Windows.h>
 
-int CalcularCubo(int num){
-    return static_cast<int>(std::pow(num, 3));
-}
 int main(){
 
     // Configura o terminal do Windows para aceitar acentuação corretamente (UTF-8)
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int a;
+    const double pi = 3.14;
+    int raio;
 
-    std::cout<<"Digite um número interiro: "<<std::endl;
-    std::cin>>a;
+    std::cout<<"Digite o raio do circulo: ";
+    std::cin>>raio;
 
-    int cubo = CalcularCubo(a);
+    double area = pi * raio * raio;
 
-    std::cout<<"O cubo de "<<a<<" é: "<<cubo<<std::endl;
+    std::cout<<"O valor da area do circulo é: "<<area<<std::endl;
+
     
     return 0;
 }
