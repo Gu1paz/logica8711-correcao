@@ -8,9 +8,9 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    std::cout<<"Números pares de 1 até 20: "<<std::endl;
+    std::cout<<"Números impares de 1 até 20: "<<std::endl;
 
-    for(int i = 2; i <= 20; i+=2){
+    for(int i = 1; i <= 20; i+=2){
         std::cout<<i<<" "<<std::endl;
     }
 
