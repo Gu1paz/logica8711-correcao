@@ -8,13 +8,16 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    std::cout<<"somar todos os numeros de 1 até 100: "<<std::endl;
+    int numero;
 
-    int soma = 0;
+    std::cout<<"Digite um numero: "<<std::endl;
+    std::cin>>numero;
 
-    for(int i = 1; i <= 100; i++){
-        soma += i;
+    std::cout<<"tabuada do numero digitado: "<<std::endl;
+    for(int i = 1; i <= 10; i++){
+        int resultado = numero * i;
+        std::cout<<numero<<" x "<<i<<" = "<<resultado<<std::endl;
     }
-    std::cout<<soma;
+
     return 0;
 }
