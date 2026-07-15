@@ -8,12 +8,13 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    std::cout<<"Números impares de 1 até 20: "<<std::endl;
+    std::cout<<"somar todos os numeros de 1 até 100: "<<std::endl;
 
-    for(int i = 1; i <= 20; i+=2){
-        std::cout<<i<<" "<<std::endl;
+    int soma = 0;
+
+    for(int i = 1; i <= 100; i++){
+        soma += i;
     }
-
-    
+    std::cout<<soma;
     return 0;
 }
