@@ -8,15 +8,11 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    const double pi = 3.14;
-    int raio;
+    std::cout<<"Números pares de 1 até 20: "<<std::endl;
 
-    std::cout<<"Digite o raio do circulo: ";
-    std::cin>>raio;
-
-    double area = pi * raio * raio;
-
-    std::cout<<"O valor da area do circulo é: "<<area<<std::endl;
+    for(int i = 2; i <= 20; i+=2){
+        std::cout<<i<<" "<<std::endl;
+    }
 
     
     return 0;
